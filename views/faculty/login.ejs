@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+    <div id="block_signup_login" class="p-4">
+    <h3 class="text-center m-5">Login to EasyView <i class="far fa-eye"></i></h3>
+        <form action="/faculty/login" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Login</button>
+            </div>
+        </form>
+        <a href="/home" class="d-inline">Go Back</a>
+        <a class="float-right d-inline" href="/forgot">Forgot password?</a>
+    </div>

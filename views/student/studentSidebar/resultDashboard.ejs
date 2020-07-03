@@ -1,0 +1,18 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/studentSidebar %>
+
+    <div class="col-10 text-center">
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-2">Rank in DBMS: <span style="font-size:40px;font-weight:600;"><%= result.dbms %></span></p>
+            <img src="rcs501_ct1.jpeg" class='m-2' alt="">
+        </div>
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-2">Rank in DAA: <span style="font-size:40px;font-weight:600;"><%= result.daa %></span></p>
+            <img src="rcs502_ct1.jpeg" class='m-2' alt="">
+        </div>
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-2">Rank in PPL: <span style="font-size:40px;font-weight:600;"><%= result.ppl %></span></p>
+            <img src="rcs503_ct1.jpeg" class='m-2' alt="">
+        </div>
+    </div>

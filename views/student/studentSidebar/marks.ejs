@@ -1,0 +1,37 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/studentSidebar %>
+    <div class="col-10">
+        <div id="block">
+
+            <table class="table text-center table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>RCS-501: DAA</th>
+                    <th>RCS-502: DBMS</th>
+                    <th>RCS-503: PPL</th>
+                </tr>
+            </thead>
+            <% testData.forEach(function(data){ %>
+                <tr>
+                    <td><%= data.sid %></td>
+                    <td><%= data.details[0].name %></td>
+                    <td><%= data.rcs501 %></td>
+                    <td><%= data.rcs502 %></td>
+                    <td><%= data.rcs503 %></td>
+
+                </tr>
+                  
+            <% }); %>
+
+        </table>
+
+
+     
+
+  
+            
+        </div>
+    </div>

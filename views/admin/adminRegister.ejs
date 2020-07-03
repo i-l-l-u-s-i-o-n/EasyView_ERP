@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+
+    <div id="block_signup_login" class="p-4">
+        <h3 class="text-center m-5">Sign Up to EasyView <i class="far fa-eye"></i></h3>
+        <div class="container">
+        <form action="/admin/register" method="post" >
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute[name]" placeholder="Institute Name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute[city]" placeholder="City">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute[country]" placeholder="Country">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute[type]" placeholder="Type ( Eg: College/University/Coaching Center etc..)">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute[mno]" placeholder="Mobile Number">
+            </div>
+             <div class="form-group">
+                    <input class="form-control" type="email" name="username" placeholder="Email">
+                </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+            </div>
+        </form>
+        <a href="/home">Go Back</a>
+        </div>
+    </div>

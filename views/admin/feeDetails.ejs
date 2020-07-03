@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<% include ../partials/adminSidebar %>
+    <div class="col-10">
+        <div id="block">
+
+            <table class="table">
+                <thead id="reminder">
+                <tr>
+                    <th>College ID</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Due Amount</th>
+                </tr>
+            </thead>
+            <% students.forEach(function(student){ %>
+                <tr>
+                    <td><%= student.college_id %></td>
+                    <td><%= student.name %></td>
+                    <td><%= student.branch %></td>
+                    <td><%= student.due_amt %></td>
+
+                </tr>
+                  
+            <% }); %>
+
+        </table>
+
+
+        <div id="reminder">
+        <label for="reminder" class="text-white font-weight-normal ml-5">Send Reminder to all students whose fee is due : </label>
+        <button class="btn btn-success text-uppercase font-weight-bold p-2 m-4">Send Reminder</button>
+    </div>
+  
+            
+        </div>
+    </div>

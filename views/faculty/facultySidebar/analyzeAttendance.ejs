@@ -1,0 +1,27 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/facultySidebar %>
+
+<div class="col-10 text-center">
+    <div id='marksGraph' class="m-2 text-center">
+        <p class="status p-3">The Attendance Analysyis</p>
+        <!-- <h3 class="mt-3 ">Your attendance is : <%= result %> %</h3> -->
+        <img src="attendance_analysis.jpeg" class='m-2' alt="">
+
+        <p class="status p-3">Below 60% : <span style="font-size:40px;font-weight:600;"><%= result[0] %></span>
+            students<br>
+            Equal or Above 60%: <span style="font-size:40px;font-weight:600;"><%=result[1]%></span> students</p>
+
+
+        <div id="reminder">
+            <label for="reminder" class="text-white font-weight-normal ml-5">Send Reminder to all students whose
+                Attendance is
+                less than 60% : </label>
+            <a class="btn btn-success text-uppercase font-weight-bold p-2 m-4"
+                href="/faculty/sendAttendanceReminder">Send Reminder</a>
+            <!-- <button class="btn btn-success text-uppercase font-weight-bold p-2 m-4">Send Reminder</button> -->
+        </div>
+
+
+    </div>
+</div>

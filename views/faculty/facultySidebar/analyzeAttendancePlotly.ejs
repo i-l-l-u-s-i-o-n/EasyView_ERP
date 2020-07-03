@@ -1,0 +1,140 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/facultySidebar %>
+
+<div class="col-10 text-center d-flex justify-content-center">
+    <div id='marksGraph' class="m-2 text-center">
+        <p class="status p-3">The Attendance Analysyis</p>
+        <!-- <h3 class="mt-3 ">Your attendance is : <%= result %> %</h3> -->
+        <!-- <img src="attendance_analysis.jpeg" class='m-2' alt=""> -->
+
+        <div id='myDiv' class="text-center"></div>
+        <script>
+            // var data = [{
+            //     values: [16, 15, 12, 6, 5, 4, 42],
+            //     labels: ['US', 'China', 'European Union', 'Russian Federation', 'Brazil', 'India', 'Rest of World'],
+            //     domain: { column: 0 },
+            //     name: 'GHG Emissions',
+            //     hoverinfo: 'label+percent+name',
+            //     hole: .4,
+            //     type: 'pie'
+            // }, {
+            //     values: [27, 11, 25, 8, 1, 3, 25],
+            //     labels: ['US', 'China', 'European Union', 'Russian Federation', 'Brazil', 'India', 'Rest of World'],
+            //     text: 'CO2',
+            //     textposition: 'inside',
+            //     domain: { column: 1 },
+            //     name: 'CO2 Emissions',
+            //     hoverinfo: 'label+percent+name',
+            //     hole: .4,
+            //     type: 'pie'
+            // }];
+            var allLabels = ['Below 60% Attendance', 'Between 60%-75% Attendance', 'Above 75% Attendance'];
+            var allValues = [[<%- parseInt(JSON.stringify(result[0])) %>,<%- parseInt(JSON.stringify(result[1])) %>,<%- parseInt(JSON.stringify(result[2])) %>]]
+
+            var d3 = Plotly.d3
+            var format = d3.format(',3f')
+            var total = allValues[0].reduce((a, b) => a + b)
+
+            var text = allValues[0].map((v, i) => `${allLabels[i]}<br><br>
+            ${format(v)} Students`)
+
+            // console.log(text)
+            var data = [{
+                values: [<%- parseInt(JSON.stringify(result[0])) %>,<%- parseInt(JSON.stringify(result[1])) %>,<%- parseInt(JSON.stringify(result[2])) %>],
+                //    values:[32,12,34],
+                labels: ['Below 60%', 'Between 60%-75%', 'Above 75%'],
+                domain: { column: 0 },
+                name: 'Attendance',
+                // hoverinfo: 'label+percent+name',
+                text: text,
+                hoverinfo: 'text',
+                textinfo: 'percent',
+                hole: .5,
+                type: 'pie',
+                textposition: 'inside',
+                'insidetextfont' : {'color' : 'auto',
+                                         'size' : 16},
+                marker: {
+                    colors: [
+                        'rgba(204, 0, 0,0.7)',
+                        'rgba(255, 255, 0,0.7)',
+                        'rgba(0, 204, 0,0.7)'
+                    ],
+
+                    line: { color: '#ffffff', width: 8 }
+                }
+            }]
+            console.log(data[0].text +"TEXT")
+
+            var layout = {
+                autosize: true,
+                title: 'Attendance Analysis',
+                annotations: [
+                    {
+                        font: {
+                            size: 30,
+                            family: 'Montserrat',
+                        },
+                        showarrow: false,
+                        text: 'Attendance',
+                        x: 0.49,
+                        y: 0.5
+                    },
+                ],
+                // margin: {
+                //     l: 200,
+                //     // pad: 4
+                // },
+                legend: {
+                    // x: 0,
+                    // y: 1,
+                    traceorder: 'normal',
+                    font: {
+                    family: 'Montserrat',
+                    size: 15,
+                    color: '#000'
+                    }
+                },
+                height: 700,
+                width: 700,
+                align: "center",
+                showlegend: true,
+                automargin: true,
+                textfont :[color = "white", size = 40 ]
+                // grid: { rows: 0, columns: 0 }
+            };
+            console.log("result")
+            Plotly.newPlot('myDiv', data, layout, align = "center");
+
+        </script>
+        <!-- <% var arr = [] %>
+        <% arr.push("Shivam") %>
+        <p> <%= arr[0] %></p>
+        <script>
+            // console.log( <%= arr[1] %>)
+            function s(t) {
+                console.log(t)
+            }
+            s(<% - JSON.stringify(arr[0]) %>)
+        </script> -->
+        <p class="status p-3">Below 60% : <span style="font-size:40px;font-weight:600;"><%= result[0] %></span>
+            students<br>
+            Equal or Above 60%: <span style="font-size:40px;font-weight:600;"><%=result[1] + result[2]%></span> students</p>
+
+
+        <div id="reminder">
+            <label for="reminder" class="text-white font-weight-normal ml-5">Send Reminder to all students whose
+                Attendance is
+                less than 60% : </label>
+            <a class="btn btn-success text-uppercase font-weight-bold p-2 m-4"
+                href="/faculty/sendAttendanceReminder">Send Reminder</a>
+            <!-- <button class="btn btn-success text-uppercase font-weight-bold p-2 m-4">Send Reminder</button> -->
+        </div>
+
+
+    </div>
+</div>
+
+
+</body>

@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<% include ../partials/adminSidebar %>
+    <div class="col-10">
+        <div id="block_signup_login">
+            
+            <form class="form-group" action="/admin/feeDetails" method="get">
+               
+            <label for="course" class="font-weight-bold p-2 m-2">COURSE :&nbsp;</label>
+            <select  name="course" id="course" class="form-control drop">
+                <option value="B.Tech">B.Tech</option>
+                <option value="B.C.A">B.C.A</option>
+            </select>
+        
+            <div>
+
+                <label for="year" class="font-weight-bold p-2 m-2">YEAR : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <select name="year" id="year" class="form-control drop">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            </div>
+            <div>
+                <label for="branch" class="font-weight-bold p-2 m-2">BRANCH : </label>
+            <select name="branch" id="branch" class="form-control drop">
+                <option value="IT">IT</option>
+                <option value="CSE">CSE</option>
+                <option value="EN">EN</option>
+                <option value="ECS">ECE</option>
+                <option value="ME">ME</option>
+            </select>
+        </div>
+
+        <input type="submit" class="btn btn-success text-uppercase font-weight-bold p-2 m-5" value="Search">
+    </div>
+        </div>
+    </div>

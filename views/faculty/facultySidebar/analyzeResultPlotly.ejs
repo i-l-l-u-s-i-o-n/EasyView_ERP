@@ -1,0 +1,349 @@
+<% include ../../partials/header %>
+
+<% include ../../partials/facultySidebar %> 
+<div class="col-1">
+
+</div>
+
+
+
+<div class="col-8 text-center justify-content-center">
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-3">DBMS Marks Analysis</p>
+            <!-- <img src="rcs501_ct1_analysis.jpeg" class='m-2' alt=""> -->
+            <div id="dbms"></div>
+            <script>
+            var allLabels = ['Below 50% Marks', 'Between 50%-75% Marks', 'Above 75% Marks'];
+            var allValues = [[<%- parseInt(JSON.stringify(result.dbms_fail)) %>,<%- parseInt(JSON.stringify(result.dbms_avg)) %>,<%- parseInt(JSON.stringify(result.dbms_aboveAvg)) %>]]
+
+            var d3 = Plotly.d3
+            var format = d3.format(',3f')
+            var total = allValues[0].reduce((a, b) => a + b)
+
+            var text = allValues[0].map((v, i) => `${allLabels[i]}<br><br>
+            ${format(v)} Students`)
+
+            // console.log(text)
+            var data = [{
+                values: [<%- parseInt(JSON.stringify(result.dbms_fail)) %>,<%- parseInt(JSON.stringify(result.dbms_avg)) %>,<%- parseInt(JSON.stringify(result.dbms_aboveAvg)) %>],
+                //    values:[32,12,34],
+                labels: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Average( > 75%)'],
+                domain: { column: 0 },
+                name: 'DBMS CT-1',
+                // hoverinfo: 'label+percent+name',
+                text: text,
+                hoverinfo: 'text',
+                textinfo: 'percent',
+                hole: .5,
+                type: 'pie',
+                sort: false,
+                textposition: 'inside',
+                'insidetextfont' : {'color' : 'auto',
+                                         'size' : 16},
+                marker: {
+                    colors: [
+                        'rgba(204, 0, 0,0.7)',
+                        'rgba(255, 255, 0,0.7)',
+                        'rgba(0, 204, 0,0.7)'
+                    ],
+
+                    line: { color: '#ffffff', width: 8 }
+                }
+            }]
+            // console.log(data[0].text +"TEXT")
+
+            var layout = {
+                autosize: true,
+                title: 'DBMS Marks Analysis',
+                annotations: [
+                    {
+                        font: {
+                            size: 30,
+                            family: 'Montserrat',
+                        },
+                        showarrow: false,
+                        text: 'DBMS CT-1',
+                        x: 0.49,
+                        y: 0.5
+                    },
+                ],
+                // margin: {
+                //     l: 200,
+                //     // pad: 4
+                // },
+                legend: {
+                    // x: 0,
+                    // y: 1,
+                    traceorder: 'normal',
+                    font: {
+                    family: 'Montserrat',
+                    size: 15,
+                    color: '#000'
+                    }
+                },
+                height: 700,
+                width: 700,
+                align: "center",
+                showlegend: true,
+                automargin: true,
+                textfont :[color = "white", size = 40 ]
+                // grid: { rows: 0, columns: 0 }
+            };
+            // console.log("result")
+            Plotly.newPlot('dbms', data, layout, align = "center");
+
+        </script>
+        </div>
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-3">DAA Marks Analysis</p>
+            <!-- <img src="rcs502_ct1_analysis.jpeg" class='m-2' alt=""> -->
+            <div id='daa'></div>
+            <script>
+                var allLabels = ['Below 50% Marks', 'Between 50%-75% Marks', 'Above 75% Marks'];
+                var allValues = [[<%- parseInt(JSON.stringify(result.daa_fail)) %>,<%- parseInt(JSON.stringify(result.daa_avg)) %>,<%- parseInt(JSON.stringify(result.daa_aboveAvg)) %>]]
+    
+                var d3 = Plotly.d3
+                var format = d3.format(',3f')
+                var total = allValues[0].reduce((a, b) => a + b)
+    
+                var text = allValues[0].map((v, i) => `${allLabels[i]}<br><br>
+                ${format(v)} Students`)
+    
+                // console.log(text)
+                var data = [{
+                    values: [<%- parseInt(JSON.stringify(result.daa_fail)) %>,<%- parseInt(JSON.stringify(result.daa_avg)) %>,<%- parseInt(JSON.stringify(result.daa_aboveAvg)) %>],
+                    //    values:[32,12,34],
+                    labels: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Average( > 75%)'],
+                    domain: { column: 0 },
+                    name: 'DAA CT-1',
+                    // hoverinfo: 'label+percent+name',
+                    text: text,
+                    hoverinfo: 'text',
+                    textinfo: 'percent',
+                    hole: .5,
+                    type: 'pie',
+                    sort: false,
+                    textposition: 'inside',
+                    'insidetextfont' : {'color' : 'auto',
+                                             'size' : 16},
+                    marker: {
+                        colors: [
+                            'rgba(204, 0, 0,0.7)',
+                            'rgba(255, 255, 0,0.7)',
+                            'rgba(0, 204, 0,0.7)'
+                        ],
+    
+                        line: { color: '#ffffff', width: 8 }
+                    }
+                }]
+                // console.log(data[0].text +"TEXT")
+    
+                var layout = {
+                    autosize: true,
+                    title: 'DAA Marks Analysis',
+                    annotations: [
+                        {
+                            font: {
+                                size: 30,
+                                family: 'Montserrat',
+                            },
+                            showarrow: false,
+                            text: 'DAA CT-1',
+                            x: 0.49,
+                            y: 0.5
+                        },
+                    ],
+                    // margin: {
+                    //     l: 200,
+                    //     // pad: 4
+                    // },
+                    legend: {
+                        // x: 0,
+                        // y: 1,
+                        traceorder: 'normal',
+                        font: {
+                        family: 'Montserrat',
+                        size: 15,
+                        color: '#000'
+                        }
+                    },
+                    height: 700,
+                    width: 700,
+                    align: "center",
+                    showlegend: true,
+                    automargin: true,
+                    textfont :[color = "white", size = 40 ]
+                    // grid: { rows: 0, columns: 0 }
+                };
+                // console.log("result")
+                Plotly.newPlot('daa', data, layout, align = "center");
+    
+            </script>
+        </div>
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-3">PPL Marks Analysis</p>
+            <!-- <img src="rcs503_ct1_analysis.jpeg" class='m-2' alt=""> -->
+            <div id='ppl'></div>
+            <script>
+                var allLabels = ['Below 50% Marks', 'Between 50%-75% Marks', 'Above 75% Marks'];
+                var allValues = [[<%- parseInt(JSON.stringify(result.ppl_fail)) %>,<%- parseInt(JSON.stringify(result.ppl_avg)) %>,<%- parseInt(JSON.stringify(result.ppl_aboveAvg)) %>]]
+    
+                var d3 = Plotly.d3
+                var format = d3.format(',3f')
+                var total = allValues[0].reduce((a, b) => a + b)
+    
+                var text = allValues[0].map((v, i) => `${allLabels[i]}<br><br>
+                ${format(v)} Students`)
+    
+                // console.log(text)
+                var data = [{
+                    values: [<%- parseInt(JSON.stringify(result.ppl_fail)) %>,<%- parseInt(JSON.stringify(result.ppl_avg)) %>,<%- parseInt(JSON.stringify(result.ppl_aboveAvg)) %>],
+                    //    values:[32,12,34],
+                    labels: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Average( > 75%)'],
+                    domain: { column: 0 },
+                    name: 'PPL CT-1',
+                    // hoverinfo: 'label+percent+name',
+                    text: text,
+                    hoverinfo: 'text',
+                    textinfo: 'percent',
+                    hole: .5,
+                    type: 'pie',
+                    sort: false,
+                    textposition: 'inside',
+                    'insidetextfont' : {'color' : 'auto',
+                                             'size' : 16},
+                    marker: {
+                        colors: [
+                            'rgba(204, 0, 0,0.7)',
+                            'rgba(255, 255, 0,0.7)',
+                            'rgba(0, 204, 0,0.7)'
+                        ],
+    
+                        line: { color: '#ffffff', width: 8 }
+                    }
+                }]
+                console.log(data[0].text +"TEXT")
+    
+                var layout = {
+                    autosize: true,
+                    title: 'PPL Marks Analysis',
+                    annotations: [
+                        {
+                            font: {
+                                size: 30,
+                                family: 'Montserrat',
+                            },
+                            showarrow: false,
+                            text: 'PPL CT-1',
+                            x: 0.49,
+                            y: 0.5
+                        },
+                    ],
+                    // margin: {
+                    //     l: 200,
+                    //     // pad: 4
+                    // },
+                    legend: {
+                        // x: 0,
+                        // y: 1,
+                        traceorder: 'normal',
+                        font: {
+                        family: 'Montserrat',
+                        size: 15,
+                        color: '#000'
+                        }
+                    },
+                    height: 700,
+                    width: 700,
+                    align: "center",
+                    showlegend: true,
+                    automargin: true,
+                    textfont :[color = "white", size = 40 ]
+                    // grid: { rows: 0, columns: 0 }
+                };
+                // console.log("result")
+                Plotly.newPlot('ppl', data, layout, align = "center");
+    
+            </script>
+        </div>
+        <div id='marksGraph' class="m-2 text-center">
+            <p class="status p-3">CT-1 Marks Simultaneous Plot</p>
+            <!-- <img src="ct1_all_in_one_plot.jpeg" class='m-2' alt=""> -->
+            <div id='bar'></div>
+            <script>
+                
+                var trace1 = {
+                    x: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Avergae( > 75%)'],
+                    y: [<%- parseInt(JSON.stringify(result.dbms_fail)) %>,<%- parseInt(JSON.stringify(result.dbms_avg)) %>,<%- parseInt(JSON.stringify(result.dbms_aboveAvg)) %>],
+                    name: 'DBMS Marks',
+                    type: 'bar',
+                    marker: {
+                        color: 'rgb(235, 122, 52)',
+                        opacity: 0.7
+                    }
+                    };
+
+                var trace2 = {
+                    x: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Avergae( > 75%)'],
+                    y: [<%- parseInt(JSON.stringify(result.daa_fail)) %>,<%- parseInt(JSON.stringify(result.daa_avg)) %>,<%- parseInt(JSON.stringify(result.daa_aboveAvg)) %>],
+                    name: 'DAA Marks',
+                    type: 'bar',
+                    marker: {
+                        color: 'rgb(119, 235, 52)',
+                        opacity: 0.7
+                    }
+                    };
+                var trace3 = {
+                    x: ['Fail( < 50%)', 'Average(50% to 75%)', 'Above Avergae( > 75%)'],
+                    y: [<%- parseInt(JSON.stringify(result.ppl_fail)) %>,<%- parseInt(JSON.stringify(result.ppl_avg)) %>,<%- parseInt(JSON.stringify(result.ppl_aboveAvg)) %>],
+                    name: 'PPL Marks',
+                    type: 'bar',
+                    marker: {
+                        color: 'rgb(197, 207, 10)',
+                        opacity: 0.7
+                    }
+                    };
+
+                var data = [trace1, trace2,trace3];
+
+                var layout = {barmode: 'group',
+                xaxis: {
+                    tickangle: -15,
+                    tickfont: {
+                        family: 'Montserrat',
+                        size: 17,
+                        color: 'black'
+                        },
+                    titlefont: {
+                    size: 20,
+                    color: 'rgb(107, 107, 107)'
+                    },
+                    },
+                yaxis: {
+                    title: 'No. of Students',
+                    titlefont: {
+                        family: 'Montserrat',
+                        size: 16,
+                        color: 'rgb(107, 107, 107)'
+                    },
+                },
+                bargap: 0.5,
+                bargroupgap: 0.1,
+                // yaxis: {range: [0, 30]}
+                legend: {
+                    // x: 0,
+                    // y: 1,
+                    traceorder: 'normal',
+                    font: {
+                    family: 'Montserrat',
+                    size: 15,
+                    color: '#000'
+                    }
+                }
+                };
+
+                Plotly.newPlot('bar', data, layout);
+
+            </script>
+        </div>
+    </div>

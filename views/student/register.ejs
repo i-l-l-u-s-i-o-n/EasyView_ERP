@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+
+    <div id="block" class="p-4">
+        <h3 class="text-center m-5">Sign Up to EasyView <i class="far fa-eye"></i></h3>
+        <div class="container">
+        <form action="/student/register" method="post" >
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-primary btn-block">Sign Up!</input>
+            </div>
+        </form>
+        <a href="/home">Go Back</a>
+        </div>
+    </div>
