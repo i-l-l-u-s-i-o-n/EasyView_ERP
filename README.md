@@ -4,7 +4,7 @@ The present age ERP with integrated Google assistant and interactive plots to ge
 attendance etc. 
 ___
 
-<h2 align="center" >Login Consoles</h2>
+<h2 align="center" >Login Console</h2>
 <p align="center" >Login facility is provided to the Admin, Faculty and Students.</p>
 <p align="center">
 <img align="center" src="screenshots/1.png" alt="Consoles"> 
