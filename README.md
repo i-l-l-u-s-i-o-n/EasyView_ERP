@@ -53,11 +53,9 @@ ___
 
 <hr>
 <p align="center">
-<img align="center" width="350" height="650" src="screenshots/1.jpeg" alt="Consoles"></p>
-
-<hr>
-<p align="center">
-<img align="center" width="350" height="650" src="screenshots/2.jpeg" alt="Consoles"></p>
+<img align="center" width="350" height="650" src="screenshots/1.jpeg" alt="Consoles">
+<img align="center" width="350" height="650" src="screenshots/2.jpeg" alt="Consoles">
+</p>
 
 <hr>
 
