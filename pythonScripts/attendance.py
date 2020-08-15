@@ -50,7 +50,7 @@ def draw():
 
 
     plt.legend()
-    plt.title("Attendance Graph", family='fantasy')
+    plt.title("Attendance Graph", family="fantasy" )
     plt.ylim([0, 100])
     plt.tick_params(axis='y', colors='#343a40', direction='out', length=13, width=3)
 
